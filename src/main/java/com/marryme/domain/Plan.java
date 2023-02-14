@@ -1,9 +1,27 @@
 package com.marryme.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
 
+@Entity(name ="plan")
+@Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Plan {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;            // 계획 id
+
     private String title;       // 계획명
     private String content;     // 계획내용
     private String hashtag;     // 해시태그
