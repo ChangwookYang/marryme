@@ -42,8 +42,9 @@ public class SecurityConfig {
 
     @Bean
     public UserDetailsService userDetailsService(UserRepository userRepository) {
+
         return username -> userRepository
-                .findById(Long.valueOf(username))
+                .findById(Long.parseLong(username))
                 .map(UserDto::from)
                 .map(PlanPrincipal::from)
                 .orElseThrow(() -> new UsernameNotFoundException("유저를 찾을 수 없습니다. - username : " + username));

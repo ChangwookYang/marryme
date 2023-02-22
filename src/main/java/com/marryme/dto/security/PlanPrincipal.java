@@ -39,7 +39,7 @@ public record PlanPrincipal(
 
     @Override public Collection<? extends GrantedAuthority> getAuthorities() { return authorities; }
 
-    @Override public String getUsername() { return nickname; }
+    @Override public String getUsername() { return String.valueOf(userId); }
     @Override public String getPassword() { return String.valueOf(userGroupId); }
 
     @Override public boolean isAccountNonExpired() { return false; }
